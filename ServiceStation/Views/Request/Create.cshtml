@@ -1,0 +1,65 @@
+﻿@model ServiceStation.Models.Request
+
+@{
+    ViewBag.Title = "New request";
+}
+
+
+@using (Html.BeginForm("Create", "Request", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>New request</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Make)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Make)
+            @Html.ValidationMessageFor(model => model.Make)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Model)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Model)
+            @Html.ValidationMessageFor(model => model.Model)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Year)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Year)
+            @Html.ValidationMessageFor(model => model.Year)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VIN)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VIN)
+            @Html.ValidationMessageFor(model => model.VIN)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrderAmount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrderAmount)
+            @Html.ValidationMessageFor(model => model.OrderAmount)
+        </div>
+
+
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+
+
+
+

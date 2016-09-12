@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/site.css" rel="stylesheet" />
+</head>
+<body>
+        <h2>Service Station</h2>
+        <div class="menu">
+            <ul>
+                <li>
+                    <a class="hide">Requests</a>
+                    <ul class="submenu">
+                        <li>@Html.ActionLink("All requests", "Index", "Request")</li>
+                        <li>@Html.ActionLink("New", "Create", "Request")</li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="hide">Clients</a>
+                    <ul class="submenu">
+                        <li>@Html.ActionLink("Add", "Create", "Client")</li>
+                        <li>@Html.ActionLink("View", "Index", "Client")</li>
+                    </ul>
+                </li>
+                <li>@Html.ActionLink("LogOff", "LogOff", "Account")</li>
+            </ul>
+        </div>
+
+
+
+
+    @RenderBody()
+</body>
+</html>

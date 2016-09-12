@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Request>
+@using ServiceStation.Models
+
+@{
+    ViewBag.Title = "List of requests";
+    int i = 0; //счетчик
+}
+
+<h2>List of requests</h2>
+<p>Total requests: @(Model.Count<Request>())</p>
+<table>
+
+    @foreach (var item in Model)
+    {
+        i++;
+        <tr>
+            <td><b>@i</b></td>
+            <td>
+                @if (item.Status == (int)RequestStatus.Open)
+                {
+                    <img src="../../Content/pictures/status1.png" title="Заявка открыта" class="tdImage" />
+                }
+                else if (item.Status == (int)RequestStatus.Distributed)
+                {
+                    <img src="../../Content/pictures/status2.png" title="Заявка распределена" class="tdImage" />
+                }
+                else if (item.Status == (int)RequestStatus.Proccesing)
+                {
+                    <img src="../../Content/pictures/status3.png" title="Заявка в процессе" class="tdImage" />
+                }
+                else if (item.Status == (int)RequestStatus.Checking)
+                {
+                    <img src="../../Content/pictures/status4.png" title="Заявка на проверке" class="tdImage" />
+                }
+                else if (item.Status == (int)RequestStatus.Closed)
+                {
+                    <img src="../../Content/pictures/status5.png" title="Заявка закрыта" class="tdImage" />
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lifecycle.Opened)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+
+            <td>
+
+                <div>
+                    <a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Description"
+                       href="Request/Details/@item.Id">
+                        <img src="../../Content/pictures/info.png" class="tdImage" title="Description" />
+                    </a>
+                </div>
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+

@@ -1,0 +1,24 @@
+﻿@model ServiceStation.Models.Request
+@{
+    ViewBag.Title = "Details";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/site.css" rel="stylesheet" />
+</head>
+<body>
+    <p><b>For more information : request №  @Html.DisplayFor(m => m.Id)</b></p>
+    <table>
+        <tr>
+            <th>OrderAmount</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(m => m.OrderAmount)</td>
+        </tr>
+    </table>
+</body>
+</html>
